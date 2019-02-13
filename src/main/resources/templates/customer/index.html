@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${customers} and ${customers.size()}">no customers :(</p>
+
+    <ul>
+        <li th:each="customer : ${customers}">
+            <a th:href="@{'/vehicle/customer/?id=' + ${customer.id}}" th:text="${customer.name}"></a>
+        </li>
+    </ul>
+    <a href="/customer/add">Add Customer</a>
+
+</body>
+</html>

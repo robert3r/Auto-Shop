@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${vehicles} and ${vehicles.size()}">no vehicles :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Make</th>
+        <th>Issue Description</th>
+        <th>Customer</th>
+    </tr>
+
+    <tr th:each="vehicle : ${vehicles}">
+        <td th:text="${vehicle.name}"></td>
+        <td th:text="${vehicle.description}"></td>
+        <td th:text="${vehicle.category.name}"></td>
+    </tr>
+
+</table>
+
+<a href="/vehicle/add">Add</a> |
+<a href="/vehicle/remove">Remove</a>
+
+</body>
+</html>

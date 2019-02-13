@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+<p th:unless="${vehicles} and ${vehicles.size()}">Please add some vehicle first</p>
+
+<form method="post" >
+
+    <div th:each="vehicle : ${vehicles}" class="checkbox">
+        <input type="checkbox" name="vehicleIds" th:value="${vehicle.id}" th:id="${vehicle.id}"/>
+        <label th:for="${vehicle.id}" th:text="${vehicle.name}"></label>
+        <br />
+    </div>
+
+    <input type="submit" value="Remove Vehicle" />
+</form>
+
+</body>
+</html>
