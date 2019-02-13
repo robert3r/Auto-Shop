@@ -17,7 +17,7 @@ import org.springframework.validation.Errors;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("menu")
+@RequestMapping("workshop")
 public class WorkshopController {
 
     @Autowired

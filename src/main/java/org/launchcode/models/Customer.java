@@ -17,7 +17,7 @@ public class Customer {
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "vehicle_id")
+    @JoinColumn(name = "customer_id")
     private List<Vehicle> vehicles = new ArrayList<>();
 
     @ManyToMany(mappedBy = "customers")

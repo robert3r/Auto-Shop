@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("category")
+@RequestMapping("customer")
 public class CustomerController {
     @Autowired
     private CustomerDao customerDao;
@@ -42,7 +42,7 @@ public class CustomerController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Customer");
-            return "category/add";
+            return "customer/add";
         }
 
         customerDao.save(customer);

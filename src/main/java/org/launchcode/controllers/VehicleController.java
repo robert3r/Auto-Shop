@@ -31,7 +31,7 @@ public class VehicleController {
     @Autowired
     private CustomerDao customerDao;
 
-    // Request path: /cheese
+    // Request path: /vehicle
     @RequestMapping(value = "")
     public String index(Model model) {
 
@@ -44,7 +44,7 @@ public class VehicleController {
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAddVehicleForm(Model model) {
         model.addAttribute("title", "Add Vehicle");
-        model.addAttribute("categories", customerDao.findAll());
+        model.addAttribute("customers", customerDao.findAll());
         model.addAttribute(new Vehicle());
         return "vehicle/add";
     }
@@ -55,9 +55,9 @@ public class VehicleController {
                                        Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Cheese");
-            model.addAttribute("categories", customerDao.findAll());
-            return "cheese/add";
+            model.addAttribute("title", "Add Vehicle");
+            model.addAttribute("customers", customerDao.findAll());
+            return "vehicle/add";
         }
         Customer cust = customerDao.findOne(customerId);
         newVehicle.setCustomer(cust);
