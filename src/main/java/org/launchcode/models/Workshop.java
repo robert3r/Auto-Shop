@@ -42,7 +42,7 @@ public class Workshop {
 
     public List<Customer> getCustomer() { return customers;}
 
-    /*public void addItem(Customer cust){
-        cheeses.add(cust);
-    }*/
+    public void addCustomer(Customer cust){
+        customers.add(cust);
+    }
 }

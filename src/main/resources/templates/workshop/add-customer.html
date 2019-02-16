@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post"  th:object="${form}" action = "/workshop/add-customer">
+    <div class="form-group">
+        <label th:for="customerId">Customer</label>
+        <select name="customerId">
+            <option th:each="customer : *{customers}"
+                    th:text="${customer.name}"
+                    th:value="${customer.id}"></option>
+        </select>
+    </div>
+    <input type="hidden" name="shopId" th:value="*{shop.id}" />
+    <input type="submit" value="Add Customer" />
+</form>
+
+</body>
+</html>

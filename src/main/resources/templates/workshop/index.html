@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${shops} and ${shops.size()}">no Shops added yet :(</p>
+
+<ul th:each="shop : ${shops}">
+   <li> <a th:href="'/workshop/view/' + ${shop.id}" th:text="${shop.name}"> </a></li>
+</ul>
+<a href="/workshop/add">Add Shop</a>
+
+</body>
+</html>
